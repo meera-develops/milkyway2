@@ -1025,11 +1025,14 @@
   /* Story */
   .story-intro {
     flex-direction: column;
-    padding: 2rem 1.5rem;
+    padding: 1rem 1.5rem;
   }
 
   .story-intro img {
     max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    flex: none;
   }
 
   /* Socials */
