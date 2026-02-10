@@ -1,0 +1,39 @@
+/* Reset and base styles */
+:root {
+  --maroon: #3D1C11;
+  --dark-brown: #4A2520;
+  --gold: #EEC671;
+  --light-gold: #D4A843;
+  --purple: #8C63A2;
+  --cream: #FFF8F0;
+  --white: #FFFFFF;
+  --text-light: #F5F0EB;
+  --overlay: rgba(35, 15, 10, 0.75);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--maroon);
+  background-color: var(--cream);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Comfortaa', cursive;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
