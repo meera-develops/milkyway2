@@ -161,7 +161,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--overlay);
+  background: rgba(35, 15, 10, 0.5);
 }
 
 .hero-content {
@@ -395,13 +395,9 @@
   padding: 3rem 2rem;
 }
 
-.socials-text {
-  flex: 1 1 400px;
-}
-
 .socials-text h2 {
   font-size: 1.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.2rem;
   color: var(--maroon);
 }
 
@@ -413,6 +409,7 @@
 }
 
 .socials-image {
+  margin-top: 1rem;
   flex: 1 1 400px;
   max-width: 480px;
 }
@@ -420,13 +417,14 @@
 .socials-image img {
   border-radius: 12px;
   width: 100%;
+  max-height: 350px;
   object-fit: cover;
 }
 
 /* Values Section */
 .values-section {
   text-align: center;
-  padding: 3rem 2rem;
+  padding: 2rem 2rem;
   background-color: var(--cream);
 }
 
@@ -449,8 +447,8 @@
 .value-pill {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background-color: var(--purple);
-  color: var(--white);
+  background-color: var(--gold);
+  color: var(--maroon);
   border-radius: 25px;
   font-weight: 600;
   font-size: 0.95rem;
@@ -480,6 +478,7 @@
 .community-image img {
   border-radius: 12px;
   width: 100%;
+  max-height: 350px;
   object-fit: cover;
 }
 
@@ -771,7 +770,7 @@
 }
 
 .contact-map img {
-  width: 60%;
+  width: 65%;
   display: block;
   margin: 0 auto;
   height: auto;
@@ -969,7 +968,8 @@
   }
 
   .nav-links li a.active {
-    color: var(--white);
+    color: var(--maroon);
+    font-weight: 700;
   }
 
   .logo-text {
@@ -1036,20 +1036,33 @@
   .socials-section {
     flex-direction: column;
     padding: 2rem 1.5rem;
+    gap: 1.5rem;
   }
 
   .socials-image {
     max-width: 100%;
+    max-height: 250px;
+
+  }
+
+  .socials-image img {
+    max-height: 250px;
   }
 
   /* Community */
   .community-section {
     flex-direction: column;
     padding: 2rem 1.5rem;
+    gap: 1.5rem;
   }
 
   .community-image {
     max-width: 100%;
+    max-height: 200px;
+  }
+
+  .community-image img {
+    max-height: 250px;
   }
 
   /* Contact */

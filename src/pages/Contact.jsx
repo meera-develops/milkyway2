@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import locationImg from '../assets/img/milkyway-location.png';
+import locationImg from '../assets/img/coffee-shop-exterior.png';
 
 function Contact() {
   const [formData, setFormData] = useState({
