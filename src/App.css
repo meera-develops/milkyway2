@@ -66,9 +66,12 @@
   transition: width 0.3s;
 }
 
-.nav-links li a:hover,
-.nav-links li a.active {
+.nav-links li a:hover {
   color: var(--purple);
+}
+
+.nav-links li a.active {
+  color: var(--white);
 }
 
 .nav-links li a:hover::after,
@@ -961,9 +964,12 @@
     color: var(--maroon);
   }
 
-  .nav-links li a:hover,
-  .nav-links li a.active {
+  .nav-links li a:hover {
     color: var(--purple);
+  }
+
+  .nav-links li a.active {
+    color: var(--white);
   }
 
   .logo-text {
