@@ -169,3 +169,23 @@
   opacity: 1;
   color: #e74c3c;
 }
+
+/* Footer / Subtotal */
+.bag-drawer-footer {
+  padding: 20px 24px;
+  border-top: 1px solid var(--maroon);
+}
+
+.bag-subtotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--cream);
+}
+
+.bag-subtotal span:last-child {
+  color: var(--gold);
+  font-size: 1.1rem;
+}

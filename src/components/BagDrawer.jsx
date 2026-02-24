@@ -2,7 +2,7 @@ import { useBag } from './BagContext';
 import './BagDrawer.css';
 
 function BagDrawer() {
-  const { bagOpen, closeBag, bagItems, removeItem } = useBag();
+  const { bagOpen, closeBag, bagItems, removeItem, updateQuantity } = useBag();
 
   return (
     <>
@@ -41,9 +41,17 @@ function BagDrawer() {
                 </div>
                 <div className="bag-item-controls">
                   <div className="bag-item-qty">
-                    <button className="qty-btn" aria-label="Decrease quantity">−</button>
+                    <button
+                      className="qty-btn"
+                      aria-label="Decrease quantity"
+                      onClick={() => updateQuantity(item.id, -1)}
+                    >−</button>
                     <span>{item.quantity}</span>
-                    <button className="qty-btn" aria-label="Increase quantity">+</button>
+                    <button
+                      className="qty-btn"
+                      aria-label="Increase quantity"
+                      onClick={() => updateQuantity(item.id, 1)}
+                    >+</button>
                   </div>
                   <button
                     className="bag-item-remove"
@@ -57,6 +65,17 @@ function BagDrawer() {
             ))
           )}
         </div>
+
+        {bagItems.length > 0 && (
+          <div className="bag-drawer-footer">
+            <div className="bag-subtotal">
+              <span>Subtotal</span>
+              <span>
+                ${bagItems.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2)}
+              </span>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

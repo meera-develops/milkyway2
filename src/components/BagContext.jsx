@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback} from 'react';
+import { createContext, useContext, useState, useCallback } from 'react';
 
 const BagContext = createContext(null);
 
@@ -6,8 +6,8 @@ export function BagProvider({ children }) {
   const [bagOpen, setBagOpen] = useState(false);
   const [bagItems, setBagItems] = useState([]);
 
-  const openBag = () => setBagOpen(true);
-  const closeBag = () => setBagOpen(false);
+  const openBag = useCallback(() => setBagOpen(true), []);
+  const closeBag = useCallback(() => setBagOpen(false), []);
 
   const addItem = useCallback((item) => {
     setBagItems((prev) => {
@@ -25,10 +25,21 @@ export function BagProvider({ children }) {
     setBagItems((prev) => prev.filter((i) => i.id !== id));
   }, []);
 
+  const updateQuantity = useCallback((id, delta) => {
+    setBagItems((prev) => {
+      return prev.reduce((acc, item) => {
+        if (item.id !== id) return [...acc, item];
+        const newQty = item.quantity + delta;
+        if (newQty <= 0) return acc; // drop the item entirely
+        return [...acc, { ...item, quantity: newQty }];
+      }, []);
+    });
+  }, []);
+
   const bagCount = bagItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <BagContext.Provider value={{ bagOpen, openBag, closeBag, bagItems, bagCount, addItem, removeItem }}>
+    <BagContext.Provider value={{ bagOpen, openBag, closeBag, bagItems, bagCount, addItem, removeItem, updateQuantity }}>
       {children}
     </BagContext.Provider>
   );
