@@ -1,14 +1,17 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/img/milkyway-logo.png';
+import { useBag } from './BagContext';
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { openBag, closeBag, bagCount } = useBag();
   const location = useLocation();
   const navRef = useRef(null);
 
   useEffect(() => {
     setMenuOpen(false);
+    closeBag();
   }, [location]);
 
   useEffect(() => {
@@ -49,6 +52,14 @@ function Navbar() {
             </Link>
           </li>
         ))}
+        <li>
+          <button className="bag-btn" aria-label="Open order bag" onClick={openBag}>
+            <i className="fa-solid fa-bag-shopping" style={{ color: 'white', fontSize: '1.3rem' }}></i>
+            {bagCount > 0 && (
+              <span className="bag-badge">{bagCount}</span>
+            )}
+          </button>
+        </li>
       </ul>
       <button
         className={`hamburger ${menuOpen ? 'active' : ''}`}

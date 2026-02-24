@@ -6,22 +6,28 @@ import OurStory from './pages/OurStory';
 import Menu from './pages/Menu';
 import Events from './pages/Events';
 import Contact from './pages/Contact';
+import { BagProvider } from './components/BagContext';
+import BagDrawer from './components/BagDrawer';
 import './App.css';
 
 function App() {
+
   return (
     <Router>
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/our-story" element={<OurStory />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </main>
-      <Footer />
+      <BagProvider>
+        <Navbar />
+        <BagDrawer />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/our-story" element={<OurStory />} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </BagProvider>
     </Router>
   );
 }
