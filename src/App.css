@@ -593,6 +593,33 @@
   color: var(--dark-brown);
 }
 
+.menu-item-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-add-btn {
+  background: var(--purple);
+  border: none;
+  cursor: pointer;
+  color: var(--white);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  transition: background 0.2s ease, transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+.menu-add-btn:hover {
+  background: var(--light-gold);
+  transform: scale(1.1);
+}
+
 /* ===========================
    EVENTS PAGE
    =========================== */

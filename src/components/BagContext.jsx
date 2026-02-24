@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useCallback} from 'react';
 
 const BagContext = createContext(null);
 
@@ -9,9 +9,21 @@ export function BagProvider({ children }) {
   const openBag = () => setBagOpen(true);
   const closeBag = () => setBagOpen(false);
 
-  // These will be fleshed out in later steps
-  const addItem = () => {};
-  const removeItem = () => {};
+  const addItem = useCallback((item) => {
+    setBagItems((prev) => {
+      const existing = prev.find((i) => i.id === item.id);
+      if (existing) {
+        return prev.map((i) =>
+          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+        );
+      }
+      return [...prev, { ...item, quantity: 1 }];
+    });
+  }, []);
+
+  const removeItem = useCallback((id) => {
+    setBagItems((prev) => prev.filter((i) => i.id !== id));
+  }, []);
 
   const bagCount = bagItems.reduce((total, item) => total + item.quantity, 0);
 

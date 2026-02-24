@@ -1,15 +1,8 @@
 import { useBag } from './BagContext';
 import './BagDrawer.css';
 
-const mockItem = {
-  id: 1,
-  name: 'Iced Caramel Latte',
-  price: 5,
-  quantity: 4,
-};
-
 function BagDrawer() {
-  const { bagOpen, closeBag } = useBag();
+  const { bagOpen, closeBag, bagItems, removeItem } = useBag();
 
   return (
     <>
@@ -35,25 +28,34 @@ function BagDrawer() {
         </div>
 
         <div className="bag-drawer-body">
-
-          {/* Mock item — remove this in a future step */}
-          <div className="bag-item">
-            <div className="bag-item-info">
-              <span className="bag-item-name">{mockItem.name}</span>
-              <span className="bag-item-price">${(mockItem.price / 100 * mockItem.quantity).toFixed(2)}</span>
-            </div>
-            <div className="bag-item-controls">
-              <div className="bag-item-qty">
-                <button className="qty-btn" aria-label="Decrease quantity">−</button>
-                <span>{mockItem.quantity}</span>
-                <button className="qty-btn" aria-label="Increase quantity">+</button>
+          {bagItems.length === 0 ? (
+            <p className="bag-empty-msg">Your bag is empty.</p>
+          ) : (
+            bagItems.map((item) => (
+              <div className="bag-item" key={item.id}>
+                <div className="bag-item-info">
+                  <span className="bag-item-name">{item.name}</span>
+                  <span className="bag-item-price">
+                    ${(Math.round(item.price * item.quantity * 100) / 100).toFixed(2)}
+                  </span>
+                </div>
+                <div className="bag-item-controls">
+                  <div className="bag-item-qty">
+                    <button className="qty-btn" aria-label="Decrease quantity">−</button>
+                    <span>{item.quantity}</span>
+                    <button className="qty-btn" aria-label="Increase quantity">+</button>
+                  </div>
+                  <button
+                    className="bag-item-remove"
+                    aria-label={`Remove ${item.name}`}
+                    onClick={() => removeItem(item.id)}
+                  >
+                    <i className="fa-solid fa-trash"></i>
+                  </button>
+                </div>
               </div>
-              <button className="bag-item-remove" aria-label="Remove item">
-                <i className="fa-solid fa-trash"></i>
-              </button>
-            </div>
-          </div>
-
+            ))
+          )}
         </div>
       </div>
     </>
