@@ -170,6 +170,12 @@
   color: #e74c3c;
 }
 
+@media (max-width: 768px) {
+  .bag-drawer {
+    width: calc(100vw - 68px);
+  }
+}
+
 /* Footer / Subtotal */
 .bag-drawer-footer {
   padding: 20px 24px;

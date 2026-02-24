@@ -58,6 +58,10 @@
   position: relative;
 }
 
+.bag-btn-mobile {
+  display: none;
+}
+
 .bag-badge {
   position: absolute;
   top: -8px;
@@ -990,8 +994,12 @@
    RESPONSIVE (max-width: 768px)
    =========================== */
 @media (max-width: 768px) {
-  /* Hamburger visible */
+  /* Hamburger + mobile bag icon visible */
   .hamburger {
+    display: flex;
+  }
+
+  .bag-btn-mobile {
     display: flex;
   }
 

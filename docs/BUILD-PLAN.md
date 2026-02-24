@@ -18,16 +18,10 @@ Here's a practical breakdown for building your coffee shop ordering bag:
 8. **Quantity controls** — Add +/– buttons so customers can adjust quantities instead of adding duplicates.
 9. **Order summary** — Show a subtotal at the bottom of the bag, calculated from the array.
 
-**Phase 4: Checkout**
-
-10. **Build the checkout form** — A simple form for name, pickup time, and optionally a phone number. No submission logic yet.
-11. **Wire up form submission** — On submit, package the order data and either send it to a backend endpoint, a Google Form, or an email service (like EmailJS if you don't have a backend).
-12. **Order confirmation** — Clear the bag, show a "Your order is confirmed!" message with an order summary.
 
 **A few decisions to make before you start coding:**
 
-- How do you want to *receive* the orders? (Email, a Google Sheet, a backend, a POS system?)
 - Do you need payments, or is this pay-in-person at pickup?
 - Is your site static HTML or built with a framework?
 
-Those answers might slightly change steps 11–12, but everything before that is the same regardless. Want to start with step 1?
+Those answers affect forward-thinking when you're ready to add a checkout screen, but everything before that is the same regardless. Want to start with step 1?

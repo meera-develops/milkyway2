@@ -61,6 +61,11 @@ function Navbar() {
           </button>
         </li>
       </ul>
+      <button className="bag-btn bag-btn-mobile" aria-label="Open order bag" onClick={openBag}>
+        <i className="fa-solid fa-bag-shopping" style={{ color: 'white', fontSize: '1.3rem' }}></i>
+        {bagCount > 0 && <span className="bag-badge">{bagCount}</span>}
+      </button>
+
       <button
         className={`hamburger ${menuOpen ? 'active' : ''}`}
         aria-label="Toggle navigation"
