@@ -52,7 +52,7 @@ function Footer() {
         &copy; 2026 Milky Way Cafe. <br />
         Fictious cafe produced for DIG4503 at UCF by{' '}
         <a
-          href="https://github.com/meera-develops"
+          href="https://www.linkedin.com/in/meera-bhola/"
           target="_blank"
           rel="noreferrer"
         >

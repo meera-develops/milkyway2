@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import { useBag } from './BagContext';
 import './BagDrawer.css';
 
 function BagDrawer() {
   const { bagOpen, closeBag, bagItems, removeItem, updateQuantity } = useBag();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -29,7 +31,15 @@ function BagDrawer() {
 
         <div className="bag-drawer-body">
           {bagItems.length === 0 ? (
-            <p className="bag-empty-msg">Your bag is empty.</p>
+            <>
+              <p className="bag-empty-msg">Your bag is empty.</p>
+              <button
+                className="bag-order-now-btn"
+                onClick={() => { closeBag(); navigate('/menu'); }}
+              >
+                Order Food Now
+              </button>
+            </>
           ) : (
             bagItems.map((item) => (
               <div className="bag-item" key={item.id}>
