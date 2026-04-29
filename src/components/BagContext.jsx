@@ -1,10 +1,21 @@
-import { createContext, useContext, useState, useCallback } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect } from 'react';
 
 const BagContext = createContext(null);
 
 export function BagProvider({ children }) {
   const [bagOpen, setBagOpen] = useState(false);
-  const [bagItems, setBagItems] = useState([]);
+  const [bagItems, setBagItems] = useState(() => {
+    try {
+      const saved = localStorage.getItem('bagItems');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem('bagItems', JSON.stringify(bagItems));
+  }, [bagItems]);
 
   const openBag = useCallback(() => setBagOpen(true), []);
   const closeBag = useCallback(() => setBagOpen(false), []);
@@ -36,10 +47,12 @@ export function BagProvider({ children }) {
     });
   }, []);
 
+  const clearBag = useCallback(() => setBagItems([]), []);
+
   const bagCount = bagItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <BagContext.Provider value={{ bagOpen, openBag, closeBag, bagItems, bagCount, addItem, removeItem, updateQuantity }}>
+    <BagContext.Provider value={{ bagOpen, openBag, closeBag, bagItems, bagCount, addItem, removeItem, updateQuantity, clearBag }}>
       {children}
     </BagContext.Provider>
   );

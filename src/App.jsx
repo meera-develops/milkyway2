@@ -6,6 +6,7 @@ import OurStory from './pages/OurStory';
 import Menu from './pages/Menu';
 import Events from './pages/Events';
 import Contact from './pages/Contact';
+import Checkout from './pages/Checkout';
 import { BagProvider } from './components/BagContext';
 import BagDrawer from './components/BagDrawer';
 import './App.css';
@@ -24,6 +25,7 @@ function App() {
             <Route path="/menu" element={<Menu />} />
             <Route path="/events" element={<Events />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/checkout" element={<Checkout />} />
           </Routes>
         </main>
         <Footer />

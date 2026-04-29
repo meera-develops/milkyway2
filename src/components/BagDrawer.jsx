@@ -84,6 +84,12 @@ function BagDrawer() {
                 ${bagItems.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2)}
               </span>
             </div>
+            <button
+              className="bag-checkout-btn"
+              onClick={() => { closeBag(); navigate('/checkout'); }}
+            >
+              Checkout
+            </button>
           </div>
         )}
       </div>
