@@ -5,5 +5,5 @@ Milky Way Cafe is a fictious multi-page website built for a local coffee shop. I
 In this project, I also worked hands-on with Vitest and React Testing library to test core features within the wbesite. The site is fully responsive across various screen widths. 
 
 ## Tech Stack:
--React.js
--Vanilla CSS 
+- React.js
+- Vanilla CSS 
