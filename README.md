@@ -1,9 +1,23 @@
-#  Milky Way V2
+## Milky Way Cafe
 
-Milky Way Cafe is a fictious multi-page website built for a local coffee shop. It features global state management to keep track of items in your bag across pages, local storage for data persistence upon refresh, and a model context protocol integration for AI-generated imagery using Nano Banana. 
+Milky Way Cafe is a fictitious multi-page website built for a local coffee shop. It features global state management to track items in a user's shopping bag across pages, along with local storage to persist data after page refreshes.
 
-In this project, I also worked hands-on with Vitest and React Testing library to test core features within the wbesite. The site is fully responsive across various screen widths. 
+The project also includes a model context protocol integration for AI-generated imagery using Nano Banana.
 
-## Tech Stack:
-- React.js
-- Vanilla CSS 
+I implemented testing using Vitest and React Testing Library to validate core functionality, and the site is fully responsive across a range of screen sizes.
+
+This project demonstrates practical use of shared state, client-side persistence, and component-level testing in a modern React application.
+
+## Tech Stack
+
+- React.js  
+- Vanilla CSS  
+- Vitest  
+- React Testing Library
+
+## Features Demonstrated
+
+- Model Context Protocol (MCP) integration  
+- Global State Management (React Context)  
+- Local Storage for client-side persistence  
+- Component testing with Vitest and React Testing Library  
